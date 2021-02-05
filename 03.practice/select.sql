@@ -1,1 +1,2 @@
-select * from memberTbl;
+select * from memberTbl
+-- WHE
