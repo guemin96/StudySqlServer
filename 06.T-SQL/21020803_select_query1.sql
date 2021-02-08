@@ -171,3 +171,4 @@ select groupName,Sum(price*amount) as '구매금액'
    group by userID
  )
  select *from cte_tmp order by total desc;
+

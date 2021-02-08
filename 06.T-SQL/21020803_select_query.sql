@@ -124,5 +124,13 @@ select count(*) as '회원수' from userTBL;
 select count(*) as '구매내역수' from buyTBl;
 
 
+use sqlDB;
+go
+
+select * from userTBL;
+
+update userTBL
+set height =166
+where userID ='JYP'
 
 
