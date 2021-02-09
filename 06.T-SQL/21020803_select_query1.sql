@@ -163,12 +163,16 @@ select groupName,Sum(price*amount) as '구매금액'
    group by userID
    order by sum(price*amount) desc;
 --with CTE 
- with cte_tmp(userID,total)
+ with cte_tmp(userID,total)-- 가상의 테이블 이 순간에만 정의하는 함수
  as
  (
 	select userID,sum(price*amount) as'total'
 	from buyTBl
    group by userID
  )
+-- select * from cte_tmp;
  select *from cte_tmp order by total desc;
+--두개의 차이점을 살필 것 뒤의 order by는 그냥 가상 테이블에 정의해놓은 total이라는 값을 받아들여 내림차순으로 나타내는 것임
+--order by를 빼고 정의할 경우 cte_tmp(열1,열2) 에서 정한 열1,열2만 나타낸다.
+
 
