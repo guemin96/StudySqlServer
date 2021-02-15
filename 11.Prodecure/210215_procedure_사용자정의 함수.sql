@@ -5,5 +5,7 @@ select
 	from userTBL
 
 -- 사용자 정의 함수를 사용한 것
+select dbo.ufn_getAge(1979);
+
 select *,
-		dbo.ufn_getAge(birthYear) from userTBL
+		dbo.ufn_getAge(birthyear) from userTBL
