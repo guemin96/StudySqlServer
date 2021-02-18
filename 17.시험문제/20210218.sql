@@ -1,12 +1,12 @@
-﻿--1번 문항 점검 1,2
-select lower(Email) as email, Mobile,Names,Addr
+﻿--1번 문항 점검 1,2,3
+select lower(Email) as email, Mobile as mobile,Names as names,Addr as addr
   from membertbl
  order by Names desc
 
-select Idx, Names, Author, ReleaseDate,Price
+select Names as names, Author as author, ReleaseDate as releaseDate,Price as price
   from bookstbl
 
---2번 문항 점검 1,2
+--2번 문항 점검 1,2,3
 
 select * from membertbl
 
@@ -28,7 +28,7 @@ select idx
  order by Idx desc
 
 
---3번 문항 점검 1,2
+--3번 문항 점검 1,2,3
 
 select * from bookstbl
 select * from divtbl
@@ -63,24 +63,24 @@ select m.Names
 
 select * from divtbl
 
- begin tran
+begin tran -- 어디에 줄을 맞춰야 될 지 몰라서 이렇게 맞췄습니다..
 
-insert into divtbl values ('I002','자기개발서')
+	insert into divtbl values ('I002','자기개발서')
 
 rollback
-commit
+commit tran
 
 
 select * from membertbl
  where Names='성명건'
 
- begin tran
-update membertbl
-   set Addr = '부산시 해운대구',
-       Mobile = '010-6683-7732'
- where Names='성명건'
+begin tran
+	update membertbl
+	   set Addr = '부산시 해운대구',
+		   Mobile = '010-6683-7732'
+     where Names='성명건'
 rollback
-commit
+commit tran
 
 --5번 문항 점검 1,2
 select * from divtbl
